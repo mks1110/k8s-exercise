@@ -20,6 +20,10 @@ metadata:
   labels:
     app: frontend
 spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 33%
+      maxUnavailable: 33%
   replicas: 3
   selector:
     matchLabels:
@@ -31,6 +35,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: htrvolker/python-frontend:red
+        image: htrvolker/python-frontend:blue
         ports:
         - containerPort: 5000

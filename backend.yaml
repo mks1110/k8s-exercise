@@ -20,6 +20,10 @@ metadata:
   labels:
     app: backend
 spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 33%
+      maxUnavailable: 33%
   replicas: 3
   selector:
     matchLabels:
